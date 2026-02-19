@@ -1,0 +1,10 @@
+name: scanstack
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - nodejs>=18    # required for npm audit
+  # Python security tools are installed via pip in setup.sh
+  # gitleaks runs via Docker — see setup.sh
