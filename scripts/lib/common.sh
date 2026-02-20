@@ -24,12 +24,17 @@ date_str() {
     date +%Y-%m-%d
 }
 
+run_id() {
+    local short_uuid; short_uuid="$(uuidgen | cut -c1-8)"
+    echo "${short_uuid}-$(date_str)"
+}
+
 default_output_dir() {
     local target="$1"
     local script_dir="$2"
     local project; project="$(project_name "$target")"
-    local dt; dt="$(date_str)"
-    echo "$(cd "$script_dir/.." && pwd)/results/$project/$dt"
+    local rid; rid="$(run_id)"
+    echo "$(cd "$script_dir/.." && pwd)/results/$project/$rid"
 }
 
 log_tool_start() {

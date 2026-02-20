@@ -7,7 +7,7 @@
 #   ./scripts/run_all.sh /path/to/project
 #
 # Results are stored at:
-#   sec_reviewer/results/<project_name>/<date>/
+#   results/<project_name>/<short-uuid-YYYY-MM-DD>/
 
 set -uo pipefail
 
@@ -29,8 +29,9 @@ done
 TARGET="$(resolve_target "$TARGET_PATH")"
 PROJECT="$(project_name "$TARGET")"
 DT="$(date_str)"
+RUN_ID="$(run_id)"
 RESULTS_BASE="$(cd "$SCRIPT_DIR/.." && pwd)/results"
-OUTPUT_DIR="$RESULTS_BASE/$PROJECT/$DT"
+OUTPUT_DIR="$RESULTS_BASE/$PROJECT/$RUN_ID"
 
 mkdir -p "$OUTPUT_DIR"
 

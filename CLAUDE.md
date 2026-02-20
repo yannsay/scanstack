@@ -34,7 +34,7 @@ systemctl --user start docker-desktop
 # etc.
 ```
 
-Results land at `results/<project_name>/<YYYY-MM-DD>/` relative to this repo.
+Results land at `results/<project_name>/<short-uuid-YYYY-MM-DD>/` relative to this repo.
 
 ## Architecture
 
@@ -65,7 +65,7 @@ Exit code `0` = clean. Non-zero = findings (not an error). `run_all.sh` uses `se
 
 ### Shared utilities (`scripts/lib/common.sh`)
 
-Sourced by every script. Provides: `resolve_target`, `project_name`, `date_str`, `default_output_dir`, `log_tool_start`, `log_tool_result`, `log_skip`. All colour output lives here.
+Sourced by every script. Provides: `resolve_target`, `project_name`, `date_str`, `run_id`, `default_output_dir`, `log_tool_start`, `log_tool_result`, `log_skip`. All colour output lives here.
 
 ## Key decisions
 
